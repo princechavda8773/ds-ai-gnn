@@ -10,7 +10,7 @@ from sklearn.preprocessing import StandardScaler
 import os
 from sklearn.metrics import roc_auc_score, f1_score, precision_score, recall_score, accuracy_score
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
-from step2_model import SocialInfluenceModel, GNNEncoder
+from model import SocialInfluenceModel, GNNEncoder
 
 import os
 os.makedirs("outputs", exist_ok=True)

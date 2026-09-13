@@ -17,7 +17,7 @@ for k in K_VALUES:
     print(f"\n{'='*70}\nBuilding ego networks for K_HOPS={k}\n{'='*70}")
     env = os.environ.copy()
     env["K_HOPS"] = str(k)
-    subprocess.run([sys.executable, "step1_ego_sampling_and_features.py"], env=env, check=True, cwd=SCRIPT_DIR)
+    subprocess.run([sys.executable, "sampling_and_features.py"], env=env, check=True, cwd=SCRIPT_DIR)
 
     for gnn_type in GNN_TYPES:
         print(f"\n{'='*70}\nTraining: K_HOPS={k}, gnn_type={gnn_type}\n{'='*70}")
@@ -25,7 +25,7 @@ for k in K_VALUES:
         env["INSTANCES_PATH"] = f"data/instances_k{k}.pt"
         env["GNN_TYPE"] = gnn_type
         env["RESULTS_TAG"] = f"k{k}_{gnn_type}"
-        subprocess.run([sys.executable, "step3_train.py"], env=env, check=True, cwd=SCRIPT_DIR)
+        subprocess.run([sys.executable, "train.py"], env=env, check=True, cwd=SCRIPT_DIR)
 
 # ---- Summarize ----
 df = pd.read_csv(results_file)
