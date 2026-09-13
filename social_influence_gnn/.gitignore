@@ -1,0 +1,9 @@
+**/__pycache__/
+*.pyc
+**/data/*.gpickle
+**/data/*.csv
+**/data/*.pt
+**/outputs/*.pt
+**/outputs/*.csv
+!**/data/.gitkeep
+!**/outputs/.gitkeep
